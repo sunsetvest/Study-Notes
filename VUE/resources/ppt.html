@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0; 
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50%;
+            width: 50%
+        }
+        #ppt{
+            padding: 100px;
+            display: flex;
+            align-items: center;
+            margin-left: 500px;
+            height: 100%;
+            width: 100%;
+        }
+        #ppt > button{
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        #ppt > img{
+            /* max-height: 200px; */
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="ppt">
+        <button v-show="count!=0"><img src="left.png" alt="" @click="minus" ></button>
+        <img :src="imagearr[count]" alt="">
+        <button v-show="count!=imagearr.length-1"><img src="right.png" alt="" @click="add" ></button>
+    </div>
+    <script>
+        var app = new Vue({
+            el:"#ppt",
+            data:{
+                canshow1:false,
+                canshow2:true,
+                count:0,
+                imagearr:["image1.png","image2.png","image3.png","image4.png","image5.png","image6.png"],
+            },
+            methods:{
+                minus:function(){
+                    if(this.count>0){
+                        this.count--;
+                        console.log(this.count);
+                        // this.canshow1=true;
+                        this.canshow2=true;
+                    }
+                    else{
+                        this.canshow1=false;
+                    }
+                },
+                add:function(){
+                    if(this.count<this.imagearr.length-1){
+                        this.count++;
+                        console.log(this.count);
+                        
+                        this.canshow1=true;
+                    }
+                    else{
+                        this.canshow2=false;
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>
