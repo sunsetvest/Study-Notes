@@ -1,0 +1,20 @@
+2025/2/27
+
+1.初步了解了java的数据结构，学习了ArrayList,LinkList,HashSet等数据结构以及对应方法。
+
+2.学习了java序列化，网络编程以及发送邮件和多线程编程相关知识。
+  2.1 java序列化
+  要使一个类可以序列化，需要让该类实现 java.io.Serializable 接口，即实现Serializable接口，
+  然后使用 ObjectOutputStream 类来将对象序列化为字节流，反序列化对象：使用 ObjectInputStream 类来从字节流中反序列化对象，类 ObjectInputStream
+  和 ObjectOutputStream 是高层次的数据流，它们包含反序列化和序列化对象的方法。
+  2.2 网络编程
+  网络编程主要通过socket编程实现，客户端程序创建一个套接字，并尝试连接服务器的套接字。当连接建立时，服务器会创建一个 Socket 对象。
+  客户端和服务器现在可以通过对 Socket 对象的写入和读取来进行通信。
+  3.3 多线程编程
+  创建线程的方法有三种：通过实现 Runnable 接口（implements Runnable）；通过继承 Thread 类本身(extends Thread)；通过 Callable 和 Future 创建线程（）。
+  前两种基本类似，实现run方法即可，最后一种需要以下四步：
+    1. 创建 Callable 接口的实现类，并实现 call() 方法，该 call() 方法将作为线程执行体，并且有返回值。
+    2. 创建 Callable 实现类的实例，使用 FutureTask 类来包装 Callable 对象，该 FutureTask 对象封装了该 Callable 对象的 call() 方法的返回值。
+    3. 使用 FutureTask 对象作为 Thread 对象的 target 创建并启动新线程。
+    4. 调用 FutureTask 对象的 get() 方法来获得子线程执行结束后的返回值。
+    
